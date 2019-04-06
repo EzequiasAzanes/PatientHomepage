@@ -1,0 +1,116 @@
+<div class="container-fluid" id="col-top">
+  <div class="row">
+    <br>
+  </div>
+</div>
+<div class="container-fluid " id="col-top-button" >
+  <div class="row">
+
+    <button [disabled]="!selected_patien t" class="col-lg-1 col-md-2 col-sm-2 img-thumbnail" id="bttn-patient" (click)="clickPatientButton()">
+        <div>
+          <img src="assets/images/patient.png" class="img-thumb" width="70%">
+        </div>
+        <b>Patient</b>
+      </button>
+
+    <button class="col-lg-1 col-md-2 col-sm-2 img-thumbnail  " id="bttn-staff">
+       <div>
+          <img src="assets/images/staff.png" class="img-thumb " width="70%">
+        </div>
+          <b>Staff</b>
+      </button>
+
+
+      <button class="col-lg-1 col-md-2 col-sm-2 img-thumbnail " id="bttn-clerk">
+          <div>
+             <img src="assets/images/clerk.png"  class="img-thumb " width="70%">
+            </div>
+            <b>Clerk</b>
+      </button>
+
+
+  </div>
+</div>
+
+<div class="container-fluid" id="col-patientlist" > 
+    <div class="row">
+      <div class="col-lg-5 col-md-2 col-sm-1" >
+        <h4>Patient List</h4>  
+      </div>
+      <div class="col-lg-7 col-md-10 col-sm-10" id="col-search">
+          <form class="form-inline" >
+         <label>NAME :</label>&nbsp;&nbsp;
+        <input type="text" class="form-control" id="patientsearch" placeholder="Search" name="patientname"  [(ngModel)]="patientnamesearch">
+              &nbsp;&nbsp; <button id="bttnsearch" class="btn btn-default" (click)="searchname()" >Search</button><b></b>
+          
+            </form> 
+     </div>
+    <div id="scrollbar" >
+        <table class="table table-bordered">
+            <thead>
+              <tr id="header-table">
+                <th>No.</th>
+                <th>Patient No.</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Contact</th>
+
+              </tr>
+            </thead>
+            
+            <tbody>
+            
+              <tr *ngFor="let patientInfo of patientlist  | searchPipe:keyword ; let i = index ;  "  (click)="getPatient(patientInfo,i+1) " >
+               
+                <td>{{  i+1 }} </td>
+                <td>{{ i+1}}</td>
+                <td>{{patientInfo.name.lname }} , {{ patientInfo.name.fname }} . {{ patientInfo.name.mname }}</td>
+                <td>{{ getAge( patientInfo.bdate )   }} </td>
+                <td>{{ patientInfo.address }} </td>
+                <td>{{ patientInfo.contact }} </td>
+            
+              </tr>
+         
+
+            </tbody>
+          </table>
+  </div>
+    </div>
+
+</div>
+
+<div class="container-fluid" id="col-footerbutton">
+  <div class="row">
+      <div class="col-lg-4 col-md-1 col-sm-0" id ="col-btnpatient">
+
+      </div>
+      <div class="col-lg-8" >
+        <button class="col-lg-2 col-md-2 col-sm-2 btton-bottom" (click) = "viewmodal('addPatient')">
+            <img src="">
+            <br>
+            <b>Add Patient</b>
+        </button>
+
+        <button [disabled]="!selected_patient"  class="col-lg-2  col-md-2 col-sm-2  btton-bottom"  (click) = "viewmodal('deletePatient')" >
+            <img src=""><br>
+            <b>Delete Patient</b>
+        </button>
+
+        <button [disabled]="!selected_patient" class="col-lg-2  col-md-2 col-sm-2  btton-bottom" (click) = "viewmodal('editPatient')">
+            <img src="">
+            <br>
+            <b>Edit Patient</b>
+        </button>
+        
+        <button [disabled]="!selected_patient" class="col-lg-2 col-md-2 col-sm-2  btton-bottom" (click) = "viewmodal('patientInfo')" >
+          <img src="">
+          <br>
+            <b>Patient Info</b>
+        </button>
+
+      </div>
+  </div>
+</div>
+
+<app-patientlist-modal (addedNewPatient)="getNewPatientInfo($event)" (deletedPatient)="removePatient($event)"  (editedPatient)="updatePatient($event)" [object]="fromParent" (fromChild)="reciever($event)"></app-patientlist-modal>

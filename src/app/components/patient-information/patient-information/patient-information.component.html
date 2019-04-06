@@ -1,0 +1,199 @@
+<div class="container-fluid" id="col-top">
+    <div class="row">
+      <br>
+    </div>
+  </div>
+  <div class="container-fluid " id="col-top-button" >
+    <div class="row">
+  
+      <button  class="col-lg-1 col-md-2 col-sm-2 img-thumbnail" id="bttn-patient" (click)="clickReturnpatientLIst()">
+          <div>
+            <img src="assets/images/patient.png" class="img-thumb" width="70%">
+          </div>
+          <b>Patient</b>
+        </button>
+  
+      <button class="col-lg-1 col-md-2 col-sm-2 img-thumbnail  " id="bttn-staff">
+         <div>
+            <img src="assets/images/staff.png" class="img-thumb " width="70%">
+          </div>
+            <b>Staff</b>
+        </button>
+  
+  
+        <button class="col-lg-1 col-md-2 col-sm-2 img-thumbnail " id="bttn-clerk">
+            <div>
+               <img src="assets/images/clerk.png"  class="img-thumb " width="70%">
+              </div>
+              <b>Clerk</b>
+        </button>
+  
+  
+    </div>
+  </div>
+<div class="container-fluid">
+  <div class="row">
+      &nbsp;&nbsp;<h4>Patient Information</h4>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-10 col-md-5 col-lg-8 ">
+     <div class="container-fluid">
+       <div class="row">
+          <div class="col-lg-3">    
+              <b>Patient No. {{ showNo }} </b><br>
+             <img src="assets/images/users.png" class="img-thumbnail" id="profilepic" width="63%">
+            
+            </div>
+            <div class="col-lg-5">
+              <br>
+          <b>Name </b>&nbsp;&nbsp;<span>{{ showpatientInfo.name.fname }}  {{ showpatientInfo.name.mname }}. {{ showpatientInfo.name.lname }}</span>
+          <br>
+          <b>Address  </b>&nbsp;&nbsp;<span>{{ showpatientInfo.address }} </span>
+          <br>
+          <b>Contact No. </b>&nbsp;&nbsp;<span>{{ showpatientInfo.contact }}</span>
+          <br>
+          <b>Age</b>&nbsp;&nbsp;<span>{{getAge(showpatientInfo.bdate)}}</span>
+          <br>
+          <b>Philhealth Member </b>&nbsp;&nbsp;<span>YES</span>
+            </div>
+      
+      </div>
+     </div>
+    </div>  
+    <div class="col-sm-10 col-md-6 col-lg-3" id ="rightside-button">
+
+      <div class="container-fluid">
+        <div class="row">
+          
+            <a class="col-sm-3 col-md-2 col-lg-4" id="button-addprofile">
+                <img src="assets/images/add-user.png" class="img-fluid " >
+                <p>Add </p>
+                <p>Profile</p>
+              </a>
+              <a class="col-sm-3 col-md-2 col-lg-4" id="button-print">
+                  <img src="assets/images/printer.png" class="img-fluid " >
+                  <p>Print</p>
+                  <p>Profile</p>
+                </a>
+                <a class="col-sm-3 col-md-2 col-lg-4" id="button-phil">
+                    <img src="assets/images/kit.png" class="img-fluid " >
+                   <p>Philhealth </p>
+                   <p>Transmital</p>
+                  </a>
+
+        </div>
+      </div>
+    
+      
+    
+    </div>
+
+
+  </div>
+</div>
+
+<div class="container-fluid" id ="patientRecord" [ngSwitch] ="switchmenubottom" >
+  <div class="row">
+    <div class="container-fluid" id="menu">
+        <button  class="btn btn-default active" id="button-bottom" (click)="clickSwitchMenu('delivery')">Delivery</button>
+        <button class="btn btn-default" id="button-bottom" (click)="clickSwitchMenu('familyplanning')">Family Planning</button>
+        <button class="btn btn-default" id="button-bottom" (click)="clickSwitchMenu('imci')">IMCI</button>
+        <button class="btn btn-default" id="button-bottom" (click)="clickSwitchMenu('others')">Others</button>
+    </div>
+    
+  </div>
+
+  <div *ngSwitchCase= "'delivery'" id="customizeDelivery">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="column menu">
+            <ul>
+          
+              <li>22-12-2018 PAID</li>
+              <li>14-11-2018 PAID</li>
+              <li>06-05-2021</li>
+            
+            </ul>
+            </div>
+          <div class="column content">
+              <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>File Name</th>
+                      <th>Status</th>
+                      <th>View</th>
+                      <th>Upload</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                  </tbody>
+                </table>
+          </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div *ngSwitchCase= "'familyplanning'">
+
+  </div>
+  <div *ngSwitchCase= "'imci'">
+
+  </div>
+        
+  <div *ngSwitchCase= "'others'">
+      
+  </div>
+
+</div>

@@ -1,0 +1,138 @@
+<div class="modal fade" id="{{modaltype}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" [ngSwitch] ="switch">
+
+          <div *ngSwitchCase= "1"> 
+              <h5 class="modal-title" id="{{modaltype}}}" >Patient Information</h5>
+          </div>
+          <div *ngSwitchCase= "2"> 
+              <h5 class="modal-title" id="{{modaltype}}}">Add Patient Information</h5>
+          </div>
+          <div *ngSwitchCase= "3"> 
+            <h5 class="modal-title" id="{{modaltype}}}">Delete Patient Information</h5>
+        </div>
+
+        <div *ngSwitchCase= "4"> 
+            <h5 class="modal-title" id="{{modaltype}}}">Edit Patient Information</h5>
+        </div>
+      
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           <div [ngSwitch] ="switch">
+<!--View Patient-->
+          <div *ngSwitchCase= "1" >
+            <div  class="container-fluid">
+              <div class="row">
+    
+            
+                  <p  class="col-lg-5">Patient No.</p><p  class="col-lg-6">{{ object?.patientNum }}</p>
+                  <p  class="col-lg-5">Fullname :</p><p class="col-lg-6">{{ object?.data.name.fname }} {{ object?.data.name.mname }}. {{ object?.data.name.lname }}</p>
+                  <p class="col-lg-5">Birthdate: </p><p  class="col-lg-6">{{ object?.data.bdate | date }}</p>
+                  <p  class="col-lg-5">Address </p> <p class="col-lg-6">{{ object?.data.address }}</p>
+                  <p class="col-lg-5">Contact</p><p class="col-lg-6">{{ object?.data.contact }}</p>
+
+              </div>
+            </div>
+      
+        </div>
+<!--Add Patient-->
+        <div *ngSwitchCase= "2" >
+            <p style="text-align: center">Patient No. &nbsp;<b style="color:#942b90;">{{ object?.num }}</b></p>
+            <form  class="form-inline">
+          
+
+                  <label class="col-lg-4" for="name">First Name:</label>
+                  <input [(ngModel)]="newPatient.name.fname" id="name" type="text" class="form-control col-lg-6 addmodalinput" name="name">
+         
+                  <label class="col-lg-4"  for="name">Last Name:</label>
+                  <input [(ngModel)]="newPatient.name.lname" id="name" type="text" class="form-control col-lg-6 addmodalinput " name="name">
+                
+         
+                  <label class="col-lg-4" for="name">Middle Name:</label>
+                  <input [(ngModel)]="newPatient.name.mname" id="name" type="text" class="form-control col-lg-6 addmodalinput" name="name">
+           
+            
+                  <label class="col-lg-4" for="age" >Birthdate:</label>
+                  <input [(ngModel)]="newPatient.bdate" type="date" class="form-control col-lg-6 addmodalinput" id="age" name="age">
+               
+                
+                  <label class="col-lg-4" for="address">Address:</label>
+                  <input [(ngModel)]="newPatient.address" type="text" class="form-control col-lg-6 addmodalinput" id="address " name="address"  >
+              
+                
+                    <label class="col-lg-4" for="contact">Contact:</label>
+                    <input [(ngModel)]="newPatient.contact" type="text" class="form-control col-lg-6 addmodalinput" id="contact"  name="contact" >
+               
+                <div class="container-fluid">
+                  <br>
+                    <button (click)="addNewPatient()" class="btn btn-md btn-secondary" id="btnsave">Save</button>
+                    <button type="button" class="btn  btn-md btn-secondary" data-dismiss="modal" id="btncancel">Cancel</button>
+                </div>
+                   
+              </form>
+              
+          </div>
+          <!--Delete Patient-->
+          <div *ngSwitchCase= "3" >
+         <div class="container-fluid"> 
+            <p>Are you sure want to delete this patient ? {{ object?.data.name.fname }} {{ object?.data.name.mname }}. {{ object?.data.name.lname }}</p>
+         </div>
+         
+         <div class="container-fluid">
+           <div class="row">
+              <div class="col-lg-8"></div>
+              <div class="col-lg-4">
+                  <button type="button" class="btn btn-secondary" (click)=" selecteddeletePatient(object?.data.patientNo)" >YES</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+               </div>
+           </div>
+          
+
+         </div>
+      </div>
+<!--Edit Patient-->
+      <div *ngSwitchCase= "4" >
+          <form>
+              <div class="form-group">
+                <label for="name">First Name:</label>
+                <input [(ngModel)]="object?.data.name.fname" id="name" type="text" class="form-control" name="fname">
+              </div>
+              <div class="form-group">
+                <label for="name">Last Name:</label>
+                <input [(ngModel)]="object?.data.name.lname" id="name" type="text" class="form-control" name="lname">
+              </div>
+              <div class="form-group">
+                <label for="name">Middle Name:</label>
+                <input [(ngModel)]="object?.data.name.mname" id="name" type="text" class="form-control" name="mname">
+              </div>
+              <div class="form-group">
+                <label for="age" >Birthdate: {{object?.data.bdate  | date }}</label>
+                <input [(ngModel)]="object?.data.bdate" type="date" class="form-control" id="age" name="age">
+              </div>
+              <div class="form-group">
+                <label for="address">Address:</label>
+                <input [(ngModel)]="object?.data.address" type="text" class="form-control" id="address" name="address"  >
+              </div>
+              <div class="form-group">
+                  <label for="contact">Contact:</label>
+                  <input [(ngModel)]="object?.data.contact" type="text" class="form-control" id="contact"  name="contact" >
+                </div>
+                <button (click)="editPatient()" class="btn btn-lg btn-secondary" >SAVE</button>
+            </form>
+      </div>
+
+
+
+
+        </div>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,15 @@
+.addmodalinput
+{
+    border-top:0px;
+    border-left:0px;
+    border-right: 0px;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+    
+}
+#btnsave,#btncancel
+{
+  width: 120px;
+  float: right;
+  margin-left: 5px;
+}

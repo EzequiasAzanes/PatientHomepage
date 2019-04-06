@@ -1,0 +1,136 @@
+#col-top
+{
+    background-color: #70c3f5;
+}
+#col-top-button
+{
+    background-color: #d7d7d7;
+}
+#bttn-patient,#bttn-staff,#bttn-clerk
+{
+    padding: 5px;
+    background-color:#c1bfc0;
+    border-radius: 0px;
+    color:white;
+    
+}
+#rightside-button
+{
+     background-color: #a1a1a1;
+     padding:1%;
+    margin-left: 6%;
+    
+}
+#button-addprofile,#button-print,#button-phil
+{
+color:white;
+text-align: center;
+
+}
+#button-addprofile:hover,#button-print:hover,#button-phil:hover
+{
+    background-color: lightpink;
+    padding: 5px;
+}
+#button-addprofile p ,#button-print p,#button-phil p
+{
+    padding: 0px;
+    margin:0px;
+}
+#tabmenu li{
+ 
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left:2px;
+    font-size: 18px;
+    border:1px solid lightgray;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.tab-content
+{
+    background-color:#c1bfc0;
+}
+#patientRecord
+{
+    padding: 2%;
+}
+#button-bottom
+{
+  background-color: white;
+  border-top:1px solid lightgray;
+  border-right:1px solid lightgray;
+  border-left:1px solid lightgray;
+  padding-left:5%;
+  padding-right: 5%;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin-left: 4px;
+  margin-right: -7px;
+  background-color: #d7d7d7;
+}
+
+#button-bottom:hover
+{
+background-color: lightpink;
+}
+#menu
+{
+margin-left: -5px;
+}
+#customizeDelivery
+{
+background-color:#c1bfc0;
+}
+table
+{
+background-color: white;
+ width: 200%;
+}
+#filename
+{
+    width: 100%;
+}
+.menu {
+    width: 14%;
+}
+.content {
+    width: 86%;
+}
+.menu ul {
+    list-style-type: none;
+    margin-top:36px;
+    margin-right: -10px;
+    padding: 0;
+}
+.menu li {
+    padding: 5px;
+    margin-bottom: 2px;
+    background-color: white;
+    border-left: 5px solid green;
+}
+.menu li:hover {
+    background-color: lightpink;
+}
+
+.column {
+    float: left;
+    padding: 2px;
+}
+th{
+    padding: 5px;
+    background-color: lightpink;
+   text-align: center;
+}
+td{
+    padding: 17px;
+}
+#profilepic
+{
+    background-color:#c1bfc0;
+    border:0px;
+}

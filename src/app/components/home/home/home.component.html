@@ -1,0 +1,107 @@
+<div class="container-fluid" id ="column-bottom"> 
+<div class="row">
+  <div class="col-lg-10" id="header-isarog">
+    <h1>Isarog Family Health And Training, Inc.</h1>
+    <div [ngSwitch] ="switch">
+      <div *ngSwitchCase= "true">
+    <b>({{ SelectedBranch.viewbranchname }})</b>
+  </div>
+  <div *ngSwitchCase= "false">
+      <b>(Select Branch)</b>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="col-sm-9 col-md-10 col-lg-2" id="branch-login">
+
+      <div class="dropdownbranch" (click)="showbranch = (showbranch) ? false : true" >
+          <a><b class=" dropdown-toggle">Branch</b></a>
+          <div class="dropdown-content-branch" *ngIf="showbranch" >
+           <div  *ngFor="let branchInfo of branchList" >
+           <p class="selectedbranchname" (click)= "viewBranch(branchInfo.branchname)"> {{ branchInfo.branchname }}</p>
+
+           </div> 
+          
+          </div>
+        </div>
+    &nbsp;&nbsp;&nbsp;
+ 
+    
+        <div class="dropdownlogin"  >
+
+           <a> <b >Login</b></a>
+            <div class="dropdown-content-login"  >
+             <div class="container-fluid">
+               <div class="row">
+        <form class="form-horizontal">
+
+
+           <label for="username">Username: </label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" [(ngModel)]="inputaccount.inputusername" >
+       
+          <label for="pwd">Password: </label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" [(ngModel)]="inputaccount.inputpassword">
+            <div class="col-loginbutton">
+            <span id ="errormessage" class="{{ error.class}}"> {{ error.message}}</span>
+             <button  [disabled]="!patientService.branch" type="submit" class="btn btn-primary" id="loginbutton" (click) ="checkaccount()">Login</button><b></b>
+            </div>
+           
+           
+          </form>
+        </div>
+        </div>
+            </div>
+          </div>
+        </div>
+  
+
+
+
+
+</div>
+</div>
+
+<div class="container-fluid" id ="selectedbranch" [ngSwitch] ="switch">
+   <div class="row">
+ <div class="container" id ="selectedbranch-images" *ngSwitchCase= "true">
+   <div class="row">
+     
+      <div  class="rounded  mx-auto d-block "  >
+          <img src="{{ SelectedBranch.viewimage }}" class="img-thumbnail" id="selectedbranch-imagescenter" >
+        
+      </div>
+
+      <div class="container" id="whatsnews-col">
+        <hr>
+          <h2>What's News ?</h2>
+          <p>{{ SelectedBranch.viewnews}}</p>
+      </div>
+      
+
+   </div>
+ </div>
+
+ <div class="container" id ="selectedbranch-images" *ngSwitchCase= "false">
+    <div class="row">
+      
+       <div  class="rounded  mx-auto d-block "  >
+                  <img src="assets/images/slidemcdo.jpg" class="img-thumbnail" >     
+       </div>
+ 
+       <div class="container" id="whatsnews-col">
+         <hr>
+           <h2>What's News ?</h2>
+           <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration 
+             in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, co
+             mbined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+       </div>
+       
+    
+      
+ 
+    </div>
+  </div>
+
+   </div>
+</div>
